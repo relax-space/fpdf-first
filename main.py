@@ -18,14 +18,13 @@ def main():
         pdf = FPDF(orientation='L', unit='pt', format='legal')
         pdf.set_auto_page_break(0)
 
-        width, height = 800, 500
-        folder_name = 'imgs'
+        width, height = 800, 1100
+        folder_name = 'i1'
         for i in os.listdir(folder_name):
             file_path = os.path.join(folder_name, i)
             ext = get_ext(file_path)
             pdf.add_page()
-            pdf.image(file_path, type=ext,
-                      w=width, h=height)
+            pdf.image(file_path, type=ext, w=width, h=height)
         pdf.output('1.pdf', "F")
         return 0
     except Exception as e:
